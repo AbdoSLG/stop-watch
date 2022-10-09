@@ -1,0 +1,45 @@
+* {
+  padding: 0%;
+  margin: 0%;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  align-items: center;
+}
+
+.container {
+  padding: 20px;
+  background-color: #4fc3f7;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 176px;
+  min-width: 330px;
+}
+.container .time {
+  display: flex;
+  font-size: 33px;
+  align-items: flex-end;
+}
+.container .time .femtosecond {
+  font-size: 25px;
+}
+.container .control {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  gap: 6px;
+}
+.container .control div {
+  padding: 10px 12px;
+  background-color: #1565c0;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}/*# sourceMappingURL=main.css.map */

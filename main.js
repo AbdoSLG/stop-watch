@@ -65,9 +65,11 @@ startBtn.onclick=function(e){
 
 // pause
 pauseBtn.onclick=function(){
-   startBtn.classList.toggle("work")
-   pauseBtn.classList.toggle("paus")
-   if(startBtn.classList.contains("work")){
+   if(pauseBtn.classList.contains("paus")){
+      pauseBtn.classList.remove("paus")
+      startBtn.classList.add("work")
+   }else{
+      pauseBtn.classList.add("paus")
       startBtn.classList.remove("work")
    }
 } 

@@ -16,43 +16,47 @@ let startBtn=document.querySelector(".start"),
 
 // start function
 startBtn.onclick=function(e){
-   startBtn.classList.add("work")
    pauseBtn.classList.remove("paus")
-
-   countFemto=setInterval(_=>{
+   
+   if(!startBtn.classList.contains("work")){
+      startBtn.classList.add("work")
+      countFemto=setInterval(_=>{
       
-      if(startBtn.classList.contains("work")){
-         femtosecond.innerHTML = setZero(parseInt(+femtosecond.innerHTML) + 1)
-         
-         if(+femtosecond.innerHTML==99){
-            femtosecond.innerHTML=0
-            second.innerHTML = setZero(parseInt(+second.innerHTML) + 1)
+         if(startBtn.classList.contains("work")){
+            femtosecond.innerHTML = setZero(parseInt(+femtosecond.innerHTML) + 1)
             
-            if(+second.innerHTML==59){
-               second.innerHTML = setZero(0)
-               minute.innerHTML = setZero(parseInt(+minute.innerHTML) + 1)
+            if(+femtosecond.innerHTML==99){
+               femtosecond.innerHTML=0
+               second.innerHTML = setZero(parseInt(+second.innerHTML) + 1)
                
-               if(+minute.innerHTML==59){
-                  minute.innerHTML = setZero(0)
-                  hour.innerHTML = setZero(parseInt(+hour.innerHTML) + 1)
+               if(+second.innerHTML==59){
+                  second.innerHTML = setZero(0)
+                  minute.innerHTML = setZero(parseInt(+minute.innerHTML) + 1)
                   
-                  if(+hour.innerHTML==24){
-                     hour.innerHTML = setZero(0)
-
+                  if(+minute.innerHTML==59){
+                     minute.innerHTML = setZero(0)
+                     hour.innerHTML = setZero(parseInt(+hour.innerHTML) + 1)
+                     
+                     if(+hour.innerHTML==24){
+                        hour.innerHTML = setZero(0)
+   
+                     }
                   }
                }
+      
             }
+            
+            // clear interval if contains puas
+            if(pauseBtn.classList.contains("paus")) clearInterval(countFemto)
    
+            
+      
          }
          
-         // clear interval if contains puas
-         if(pauseBtn.classList.contains("paus")) clearInterval(countFemto)
-
-         
-   
-      }
-      
-   } ,10)
+      } ,10)
+   }else{
+      return false
+   }
 
    
    
@@ -63,6 +67,9 @@ startBtn.onclick=function(e){
 pauseBtn.onclick=function(){
    startBtn.classList.toggle("work")
    pauseBtn.classList.toggle("paus")
+   if(startBtn.classList.contains("work")){
+      startBtn.classList.remove("work")
+   }
 } 
 
 
@@ -74,5 +81,4 @@ resetBtn.onclick=function(){
    minute.innerHTML = setZero(0)
    second.innerHTML = setZero(0)
    femtosecond.innerHTML = setZero(0)
-} 
-
+}

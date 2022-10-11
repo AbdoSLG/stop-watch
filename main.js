@@ -79,6 +79,7 @@ pauseBtn.onclick=function(){
 // reset btn
 resetBtn.onclick=function(){  
    clearInterval(countFemto)
+   startBtn.classList.remove("work")
    hour.innerHTML = setZero(0)
    minute.innerHTML = setZero(0)
    second.innerHTML = setZero(0)
